@@ -14,13 +14,19 @@ import getConfig from './config';
 const { networkId } = getConfig(process.env.NODE_ENV || 'development');
 
 
+// images
+import votingLogo from "./assets/votingLogo.png";
 
 export default function App() {
       return (
             <Router>
                   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                         <Container>
-                              <Navbar.Brand href='/'>React-Bootstrap</Navbar.Brand>
+                              <Navbar.Brand href='/'> 
+                             
+                              <img src={votingLogo} width="50" height="50"></img>
+                              <h7> Voting App</h7>
+                              </Navbar.Brand>
                               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                               <Navbar.Collapse id="responsive-navbar-nav">
                                     <Nav className="mx-auto"></Nav>
