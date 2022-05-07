@@ -18,6 +18,14 @@ const { networkId } = getConfig(process.env.NODE_ENV || 'development');
 import votingLogo from "./assets/votingLogo.png";
 
 export default function App() {
+      const changeCandidatesFunction = async (prompt) => {
+            console.log(prompt);
+            let namePair = await window.contract.getCandidatePair({ prompt: prompt });
+            localStorage.setItem("Candidate1", namePair[0]);
+            localStorage.setItem("Candidate2", namePair[1]);
+            localStorage.setItem("prompt", prompt);
+            window.location.replace(window.location.href + "PollingStation");
+          };
       return (
             <Router>
                   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -43,7 +51,7 @@ export default function App() {
                   </Navbar>
                   <Routes>
 
-                        <Route path="/" exact={true} element={<Home />} />
+                        <Route path="/" exact={true} element={<Home changeCandidates={changeCandidatesFunction}/>} />
                         <Route path='/PollingStation' exact={true} element={<PollingStation />} />
                         <Route path='/NewPoll' exact={true} element={<NewPoll />} />
 
