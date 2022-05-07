@@ -28,11 +28,7 @@ export default function App() {
                               </Navbar.Collapse>
                         </Container>
                   </Navbar>
-                  <switch>
-                   <rout>
-                         
-                   </rout>
-                  </switch>
+                
             </Router>
 
 
